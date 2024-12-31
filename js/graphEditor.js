@@ -26,6 +26,9 @@ class GraphEditor {
         const mouse = new Point(e.offsetX, e.offsetY);
 
         if (this.hovered) {
+          if (this.selected) {
+            this.graph.tryAddSegment(new Segment(this.selected, this.hovered));
+          }
           this.selected = this.hovered;
           this.dragging = true;
           return;
