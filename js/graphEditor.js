@@ -32,7 +32,11 @@ class GraphEditor {
         }
 
         this.graph.addPoint(mouse);
+        if (this.selected) {
+          this.graph.tryAddSegment(new Segment(this.selected, mouse));
+        }
         this.selected = mouse;
+        this.hovered = mouse;
       }
     });
     this.canvas.addEventListener("mousemove", (e) => {
